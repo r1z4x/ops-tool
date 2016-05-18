@@ -276,10 +276,10 @@ class Crawler:
         if max_redirect is None:
             max_redirect = self.max_redirect
 
-        if self.binary_search(url, self.seen_urls) == False:
-            LOGGER.debug('adding %r %r', url, max_redirect)
-            self.seen_urls.add(url)
-            self.q.put_nowait((url, max_redirect))
+        #if self.binary_search(url, self.seen_urls) == False:
+        LOGGER.debug('adding %r %r', url, max_redirect)
+        self.seen_urls.add(url)
+        self.q.put_nowait((url, max_redirect))
 
     @asyncio.coroutine
     def crawl(self):
